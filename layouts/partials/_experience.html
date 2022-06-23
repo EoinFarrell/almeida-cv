@@ -21,11 +21,30 @@
                         </h3>
                         <h3 class="experience__date">{{ .Date | safeHTML }}</h3>
                     </div>
+                    {{ if .Description -}}
+                        <p>{{ .Description | safeHTML -}}</p>
+                    {{ end -}}
+
+                    {{ if .Details }}
+                    <h3>Key Tasks</h3>
                     <ul>
                         {{ range .Details }}
-                        <li class="experience__bullet">{{ . }}</li>
+                            {{ if .Heading -}}
+                                <li class="experience__bullet">{{ .Heading | safeHTML| safeHTML }}</li>
+                            {{ else -}}
+                                <li class="experience__bullet">{{ . | safeHTML }}</li>
+                            {{ end -}}
+
+                            {{ if .Bullet -}}
+                                <ul>
+                                    {{ range .Bullet }}
+                                        <li style="margin-left: 1em;" class="experience__bullet">{{ . | safeHTML }}</li>
+                                    {{ end }}
+                                </ul>
+                            {{ end }}
                         {{ end }}
                     </ul>
+                    {{ end -}}
                     <div class="experience__badges">
                         <ul>
                             {{ range .Badges }}
