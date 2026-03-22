@@ -7,6 +7,17 @@
         width: $width-left-col;
         height: 100%;
         padding: 3rem 4rem;
+
+        @media screen {
+            &::after {
+                content: $footer-note;
+                height: 4rem;
+                width: 100%;
+                position: absolute;
+                bottom: 0.5rem;
+                color: darken($color-light, 10%);
+            }
+        }
     }
 
     &__right {
@@ -20,5 +31,16 @@
         right: 1rem;
 
         @include shadow(0.5);
+    }
+
+    &__swapped {
+        &__left {
+            float: right;
+        }
+
+        &__right {
+            float: left;
+            left: 1rem;
+        }
     }
 }
