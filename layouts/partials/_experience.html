@@ -42,7 +42,7 @@
                             {{ if .Bullet -}}
                                 <ul>
                                     {{ range .Bullet }}
-                                        <li style="margin-left: 1em;" class="experience__bullet">{{ . | safeHTML }}</li>
+                                        <li class="experience__subbullet">{{ . | safeHTML }}</li>
                                     {{ end }}
                                 </ul>
                             {{ end }}
